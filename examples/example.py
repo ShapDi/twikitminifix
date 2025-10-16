@@ -1,6 +1,6 @@
 import asyncio
 
-from twikit import Client
+from twikitminifix import Client
 
 ###########################################
 

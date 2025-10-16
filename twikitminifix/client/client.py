@@ -4250,7 +4250,7 @@ class Client:
 
         Examples
         --------
-        >>> from twikit.streaming import Topic
+        >>> from twikitminifix.streaming import Topic
         >>>
         >>> topics = {
         ...     Topic.tweet_engagement('1739617652'), # Stream tweet engagement

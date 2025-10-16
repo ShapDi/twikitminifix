@@ -1,8 +1,8 @@
 import asyncio
 import os
 
-from twikit import Client
-from twikit.streaming import Topic
+from twikitminifix import Client
+from twikitminifix.streaming import Topic
 
 AUTH_INFO_1 = ''
 AUTH_INFO_2 = ''
