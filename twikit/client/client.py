@@ -1521,11 +1521,15 @@ class Client:
             tweet = tweet_from_data(self, entry)
             if tweet is not None:
                 results.append(tweet)
+        try:
+            if entries[-1]['entryId'].startswith('cursor'):
 
-        if entries[-1]['entryId'].startswith('cursor'):
-            next_cursor = entries[-1]['content']['itemContent']['value']
-            _fetch_next_result = partial(self._get_more_replies, tweet_id, next_cursor)
-        else:
+                next_cursor = entries[-1]['content']['itemContent']['value']
+                _fetch_next_result = partial(self._get_more_replies, tweet_id, next_cursor)
+            else:
+                next_cursor = None
+                _fetch_next_result = None
+        except Exception as ex:
             next_cursor = None
             _fetch_next_result = None
 
