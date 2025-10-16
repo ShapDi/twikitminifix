@@ -1,6 +1,6 @@
 [project]
 name = "twikitminifix"
-version = "2.3.3"
+version = "2.3.3-fix"
 description = "Twitter API wrapper for python with **no API key required**."
 authors = [
     {name = "", email = "shapranov.work@gmail.com"},
