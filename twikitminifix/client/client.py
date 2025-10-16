@@ -1633,13 +1633,16 @@ class Client:
                     display_type = find_dict(entry, 'tweetDisplayType', True)
                     if display_type and display_type[0] == 'SelfThread':
                         tweet.thread = [tweet_object, *replies]
-
-        if entries[-1]['entryId'].startswith('cursor'):
-            # if has more replies
-            reply_next_cursor = entries[-1]['content']['itemContent']['value']
-            _fetch_more_replies = partial(self._get_more_replies,
-                                          tweet_id, reply_next_cursor)
-        else:
+        try:
+            if entries[-1]['entryId'].startswith('cursor'):
+                # if has more replies
+                reply_next_cursor = entries[-1]['content']['itemContent']['value']
+                _fetch_more_replies = partial(self._get_more_replies,
+                                              tweet_id, reply_next_cursor)
+            else:
+                reply_next_cursor = None
+                _fetch_more_replies = None
+        except Exception as ex:
             reply_next_cursor = None
             _fetch_more_replies = None
 
